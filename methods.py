@@ -65,3 +65,4 @@ def deleteRow(id):
     ).delete()
     
     db.session.commit()
+    
