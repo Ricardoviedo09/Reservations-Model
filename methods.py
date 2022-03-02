@@ -22,10 +22,10 @@ def insertRow(name, lastname, email, reservationDate):
         db.session.commit()
     
 def showRows():
-    reservation = db.session.query(Reservation.id, Reservation.name, Reservation.lastname, Reservation.email).all()
+    reservation = db.session.query(Reservation.id, Reservation.name, Reservation.lastname, Reservation.email, Reservation.reservationDate).all()
     
     for i in reservation:
-        print("ID: {}, Nombre: {}, Apellido: {}, Correo: {}".format(i.id, i.name, i.lastname, i.email))
+        print("ID: {}, Nombre: {}, Apellido: {}, Correo: {}, Fecha Reservacion: {}".format(i.id, i.name, i.lastname, i.email, i.reservationDate))
 
 def updateRow(id):
     print('''
