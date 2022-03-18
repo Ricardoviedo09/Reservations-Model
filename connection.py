@@ -7,4 +7,4 @@ engine = create_engine("mysql+pymysql://root:@localhost/reservation")
 Session = sessionmaker(engine)
 session = Session()
 
-Base = declarative_base()    
+Base = declarative_base()

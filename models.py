@@ -9,7 +9,7 @@ class Reservation(db.Base):
     name = Column(String(50), nullable=False)
     lastname = Column(String(50), nullable=False)
     email = Column(String(50), nullable=False, unique=True)
-    reservationDate = Column(DateTime(), unique=True)
+    reservationDate = Column(String(15), nullable=False, unique=True)
     create_at = Column(DateTime(), default=datetime.now, unique=True)
     
     def __init__(self, name, lastname, email, reservationDate):
@@ -17,9 +17,6 @@ class Reservation(db.Base):
         self.lastname = lastname
         self.email = email
         self.reservationDate = reservationDate
-        
-    #def __repr__(self):
-    #    return f'Reservation({self.name}, {self.lastname}, {self.email})'
     
     def __str__(self):
         return self.name, self.lastname, self.email, self.reservationDate

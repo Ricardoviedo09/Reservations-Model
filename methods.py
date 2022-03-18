@@ -12,15 +12,17 @@ def menu():
         4- Eliminar Reservacion
         ''')
 
-def insertRow(name, lastname, email, reservationDate):
-    date = datetime.strptime(reservationDate, '%d/%m/%Y')
+def insertRow(name, lastname, email, dateReservation):
+    date = datetime.strptime(dateReservation, '%d/%m/%Y').strftime('%d, %b, %Y')
     reservation = Reservation(name=f'{name}', lastname=f'{lastname}', email=f'{email}', reservationDate=date)
-    if str(date) in reservationDate:
-        print("Esta fecha ya se encuentra registrada por otra persona.")
+    validationDate = db.session.query(Reservation).filter(Reservation.reservationDate == date)
+    
+    if date == validationDate:
+        print("Esta fecha ya se encuentra registrada")
     else:
         db.session.add(reservation)
         db.session.commit()
-    
+            
 def showRows():
     reservation = db.session.query(Reservation.id, Reservation.name, Reservation.lastname, Reservation.email, Reservation.reservationDate).all()
     

@@ -14,8 +14,8 @@ if __name__ == '__main__':
             name = input("Ingrese el nombre: ")
             lastname = input("Ingrese el Apellido: ")
             email = input("Ingrese el Correo: ")
-            reservationDate = input("Ingrese una fecha de reservacion dd/mm/aaaa: ")
-            mt.insertRow(name, lastname, email, reservationDate)
+            dateReservation = input("Ingrese una fecha de reservacion dd/mm/aaaa: ")
+            mt.insertRow(name, lastname, email, dateReservation)
         elif option == 2:
             mt.showRows()
         elif option == 3:
